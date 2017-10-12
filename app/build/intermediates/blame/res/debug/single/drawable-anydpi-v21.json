@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\admin\\Downloads\\transport-tracker-master\\transport-tracker-master\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\sun.xml",
+        "source": "C:\\Users\\admin\\Downloads\\transport-tracker-master\\transport-tracker-master\\android\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\sun.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Downloads\\transport-tracker-master\\transport-tracker-master\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\cloud.xml",
+        "source": "C:\\Users\\admin\\Downloads\\transport-tracker-master\\transport-tracker-master\\android\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\cloud.xml"
+    },
+    {
+        "merged": "C:\\Users\\admin\\Downloads\\transport-tracker-master\\transport-tracker-master\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\water.xml",
+        "source": "C:\\Users\\admin\\Downloads\\transport-tracker-master\\transport-tracker-master\\android\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\water.xml"
+    }
+]

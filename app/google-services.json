@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "943740877212",
+    "firebase_url": "https://transport-test-1.firebaseio.com",
+    "project_id": "transport-test-1",
+    "storage_bucket": "transport-test-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:943740877212:android:b5599a8062cdeaf2",
+        "android_client_info": {
+          "package_name": "com.google.transporttracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "943740877212-vtvbfjkcv2rgqmsla2asptr3ga745bna.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.google.transporttracker",
+            "certificate_hash": "062659e3c2b2bf7dea64c53f6762f22ada91d709"
+          }
+        },
+        {
+          "client_id": "943740877212-fktg7kqna75cpfn6o44aealvafisj702.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_jYKHXIVfu3pwNOyxv7ggdqlJaPGRa3Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "943740877212-fktg7kqna75cpfn6o44aealvafisj702.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

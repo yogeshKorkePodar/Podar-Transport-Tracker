@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bus_school_edited"
+    tools:context="com.google.transporttracker.MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.2"
+        android:background="#000000" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="#e5c100"
+        android:layout_centerHorizontal="true"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_marginTop="79dp"
+        android:text="Parent" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="150dp"
+        android:background="#e5c100"
+        android:textColor="#000000"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:textStyle="bold"
+        android:text="Bus Driver"
+        android:layout_below="@+id/button2"
+        android:layout_alignStart="@+id/button2" />
+
+</RelativeLayout>

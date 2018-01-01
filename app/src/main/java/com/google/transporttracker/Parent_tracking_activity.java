@@ -9,15 +9,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
 public class Parent_tracking_activity extends AppCompatActivity implements View.OnClickListener {
     public static DatabaseReference mDatabaseReference, busNodeRef;
+    private static final int CONFIG_CACHE_EXPIRY = 600;  // 10 minutes.
+    private FirebaseRemoteConfig mFirebaseRemoteConfig;
     public static String tracking_number;
     public static EditText editText_bus_number;
     Button track_bus;
@@ -34,7 +43,48 @@ public class Parent_tracking_activity extends AppCompatActivity implements View.
         track_bus = (Button) findViewById(R.id.button4);
         track_bus.setOnClickListener(this);
 
+        mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
+        FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
+                .setDeveloperModeEnabled(BuildConfig.DEBUG)
+                .build();
+        mFirebaseRemoteConfig.setConfigSettings(configSettings);
+        mFirebaseRemoteConfig.setDefaults(R.xml.remote_config_defaults);
+
+        authenticate("test.parent1@podar.org", "india@123");
     }
+
+    private void authenticate(String email, String password) {
+        final FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>(){
+                    @Override
+                    public void onComplete(Task<AuthResult> task) {
+                        Log.d("<< Authenticating User", "authenticate: " + task.isSuccessful());
+                        if (task.isSuccessful()) {
+                            fetchRemoteConfig();
+                        } else {
+            Toast.makeText(getApplicationContext(), "Authentication Failed", Toast.LENGTH_LONG).show();
+
+                        }
+                    }
+                });
+    }
+
+    private void fetchRemoteConfig() {
+        long cacheExpiration = CONFIG_CACHE_EXPIRY;
+        if (mFirebaseRemoteConfig.getInfo().getConfigSettings().isDeveloperModeEnabled()) {
+            cacheExpiration = 0;
+        }
+        mFirebaseRemoteConfig.fetch(cacheExpiration)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.i("<< fetchRemoteConfig", "Remote config fetched");
+                        mFirebaseRemoteConfig.activateFetched();
+                    }
+                });
+    }
+
 
     @Override
     public void onBackPressed() {
